@@ -46,6 +46,7 @@
     align-items: flex-start;
     overflow-y: scroll;
     width: 100%;
+    padding: 10px;
 }
 
 .msg-container {
@@ -55,6 +56,10 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column-reverse;
+}
+
+.msg-container::-webkit-scrollbar {
+    display: none;
 }
 
 .msg-content {
@@ -97,7 +102,7 @@
     border-bottom-left-radius: 10px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(240, 240, 240);
+    background-color: #F7F7F7;;
     padding: 0;
 }
 
@@ -148,8 +153,6 @@
     border-radius: 4px;
     color: #fff;
 }
-
-
 
 /* 
     msg Input
