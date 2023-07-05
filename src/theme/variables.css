@@ -234,3 +234,13 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 }
+
+ion-router-outlet {
+  min-width: 86%;
+  margin-left: 50px;
+  overflow: visible;
+}
+
+.ion-splitpane.visible ion-router-outlet {
+  margin-left: 50px;
+}

@@ -1,0 +1,166 @@
+.ion-page {
+    max-width: 100%;
+}
+
+.home-page {
+    overflow: visible;
+}
+
+/* 
+    Header 
+*/
+
+.header-wrapper {
+    padding-left: 10px;
+}
+
+.header {
+    box-shadow: none;
+    border-bottom: 1px solid rgb(124 58 237);
+    width: 100vh;
+    margin-left: -60px;
+}
+
+.header-container {
+    padding-left: 20px;
+}
+
+.user-name {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.user-status {
+    font-size: 15px;
+    color: rgb(74, 193, 74);
+    margin-top: 5px;
+}
+
+/* 
+    msg section
+*/
+
+.msg-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.msg-container {
+    max-height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.msg-content {
+    margin-bottom: 10px;
+    position: relative;
+    max-width: 100%;
+    height: fit-content;
+    display: flex;
+}
+
+.msg-content.user {
+    justify-content: flex-end;
+}
+
+.msg-content-inside {
+    background-color: rgb(146, 87, 248);
+    text-align: justify;
+    padding: 10px;
+    color: #fff;
+}
+
+.msg-text {
+    color: #fff;
+    white-space: pre-wrap;
+}
+
+.msg-content-inside.user {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.msg-content-inside.bot {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.msg-content-inside.bot.survey {
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(240, 240, 240);
+    padding: 0;
+}
+
+.survey-heading {
+    background-color: rgb(146, 87, 248);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.survey-question {
+    padding: 3px 10px;
+    color: black;
+}
+
+.survey-question p {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.survey-stars {
+    padding: 3px 10px;
+}
+
+.star-icon {
+    color: rgb(150, 147, 147);
+    padding-right: 5px;
+}
+
+.survey-btn {
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.previous-btn {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    color: rgb(146, 87, 248);
+    cursor: pointer;
+}
+
+.next-btn {
+    background-color: rgb(146, 87, 248);
+    border-radius: 4px;
+    color: #fff;
+}
+
+
+
+/* 
+    msg Input
+*/
+
+.msg-input-container {
+    width: 100%;
+}
+
+.msg-input {
+    border: 2px solid rgb(209, 208, 208);
+    border-radius: 8px;
+    width: 100%;
+}
