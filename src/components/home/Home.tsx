@@ -132,8 +132,8 @@ const Home: React.FC = ({ showSurvey, showPendingLeave, ShowTypeLeave, splitMenu
         </div>
 
         {/* Message Input */}
-        <div className="msg-input-container">
-          <IonItem className="msg-input">
+        <div className="msg-input-container w-full">
+          <IonItem className="msg-input rounded-lg w-full border-2 border-gray-400">
             <IonTextarea
               autoGrow={true}
               rows={1}

@@ -1,23 +1,30 @@
+import LeaveReason from "./LeaveReason";
+
+interface Reason {
+  number: number;
+  content: string;
+}
+
+const reasons: Reason[] = [
+  { number: 10, content: "Casual" },
+  { number: 3, content: "Privilege" },
+  { number: 8, content: "Sick" },
+];
 
 const Leave = () => {
   return (
-      <div className="pending-leaves leave-page">
-        <p>Pending Leaves</p>
-        <div className="leave-reasons">
-          <div className="reason">
-            <div className="reason-number">10</div>
-            <div className="reason-content">Casual</div>
-          </div>
-          <div className="reason">
-            <div className="reason-number">3</div>
-            <div className="reason-content">Privilege</div>
-          </div>
-          <div className="reason">
-            <div className="reason-number">8</div>
-            <div className="reason-content">Sick</div>
-          </div>
-        </div>
+    <div className="pending-leaves leave-page w-full font-medium">
+      <p>Pending Leaves</p>
+      <div className="leave-reasons flex center flex-col gap-[10px] px-1 pb-2">
+        {reasons.map((reason) => (
+          <LeaveReason
+            key={reason.number}
+            number={reason.number}
+            content={reason.content}
+          />
+        ))}
       </div>
+    </div>
   );
 };
 

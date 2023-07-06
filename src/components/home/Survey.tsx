@@ -1,6 +1,5 @@
 import { IonButton, IonIcon } from "@ionic/react";
 import { starSharp } from "ionicons/icons";
-import React from "react";
 
 type Props = {};
 
