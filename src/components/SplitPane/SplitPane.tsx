@@ -181,7 +181,7 @@ const SplitPane = (props: Props) => {
                 style={{ minWidth: "20px" }}
               >
                 <img
-                  src="../../../public/Filled_hr.svg"
+                  src="/Filled_hr.svg"
                   onClick={surveyHandler}
                   style={{ color: "#7E55F1", display: "block" }}
                 />
@@ -226,7 +226,7 @@ const SplitPane = (props: Props) => {
                 style={{ minWidth: "20px" }}
               >
                 <img
-                  src="../../../public/redeem_FILL0_wght300_GRAD0_opsz24 1.svg"
+                  src="/redeem_FILL0_wght300_GRAD0_opsz24 1.svg"
                   onClick={surveyHandler}
                   style={{ color: "#7E55F1", display: "block" }}
                 />
@@ -252,7 +252,7 @@ const SplitPane = (props: Props) => {
                 style={{ minWidth: "20px" }}
               >
                 <img
-                  src="../../../public/Filled_payslip.svg"
+                  src="/Filled_payslip.svg"
                   onClick={surveyHandler}
                   style={{ color: "#7E55F1", display: "block" }}
                 />
