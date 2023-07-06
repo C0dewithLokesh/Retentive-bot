@@ -1,9 +1,5 @@
-import { IonHeader, IonLabel, IonPage, IonSegment, IonSegmentButton, IonTitle, IonToolbar } from "@ionic/react";
-import "./Leave.css";
 
-type Props = {};
-
-const Leave = (props: Props) => {
+const Leave = () => {
   return (
       <div className="pending-leaves leave-page">
         <p>Pending Leaves</p>
