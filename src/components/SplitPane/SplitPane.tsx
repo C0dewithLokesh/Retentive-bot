@@ -173,7 +173,7 @@ const SplitPane = (props: Props) => {
             </div>
 
             {/* CORE HR */}
-            <div className={`sidebar-item ${LeaveDropdown ? "m-68" : ""}`} onClick={hrDrodownhandler}>
+            <div className={`sidebar-item ${LeaveDropdown ? "margin-96" : ""}`} onClick={hrDrodownhandler}>
               <div
                 className={`sidebar-icon ${
                   showSurvey ? "active" : ""

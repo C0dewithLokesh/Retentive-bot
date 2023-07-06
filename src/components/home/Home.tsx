@@ -67,8 +67,8 @@ const Home: React.FC = ({ showSurvey, showPendingLeave, ShowTypeLeave, splitMenu
             ></IonMenuButton>
           </IonButtons>
           <IonTitle className="header-container">
-            <p className="user-name">Retentive Bot</p>
-            <p className="user-status">Active</p>
+            <p className="user-name mt-5">Retentive Bot</p>
+            <p className="user-status mb-4">Active</p>
           </IonTitle>
         </IonToolbar>
       </IonHeader>

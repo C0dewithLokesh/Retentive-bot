@@ -1,9 +1,9 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
 
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 /** Ionic CSS Variables **/
 :root {
@@ -239,6 +239,11 @@ http://ionicframework.com/docs/theming/ */
   }
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: normal;
+}
+
 ion-router-outlet {
   min-width: 86%;
   margin-left: 50px;
@@ -274,7 +279,8 @@ ion-router-outlet {
   min-width: 50px;
   transition: max-width 0.5s ease-in-out;
   z-index: 1;
-  margin-top: 84px;
+  margin-top: 83px;
+  border-right: 1px solid grey;
 }
 
 .split-menu.close {
@@ -300,8 +306,8 @@ ion-router-outlet {
   display: none;
 }
 
-.m-68 {
-  margin-top: 68px;
+.margin-96 {
+  margin-top: 96px;
 }
 
 .hr-dropdown p {
@@ -324,6 +330,10 @@ ion-router-outlet {
   gap: 20px;
   width: 100%;
   transition: all 0.5s ease-in-out;
+}
+
+.sidebar-item p {
+  margin: 10px 0;
 }
 
 .ion-padding.p-10 {
@@ -498,52 +508,9 @@ ion-router-outlet {
   padding: 0;
 }
 
-.survey-heading {
-  background-color: rgb(146, 87, 248);
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.survey-question {
-  padding: 3px 10px;
-  color: black;
-}
-
-.survey-question p {
-  margin: 0;
-  margin-top: 5px;
-}
-
-.survey-stars {
-  padding: 3px 10px;
-}
-
 .star-icon {
-  color: rgb(150, 147, 147);
+  color: rgb(149, 147, 147);
   padding-right: 5px;
-}
-
-.survey-btn {
-  padding: 5px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.previous-btn {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
-  color: rgb(146, 87, 248);
-  cursor: pointer;
-}
-
-.next-btn {
-  background-color: rgb(146, 87, 248);
-  border-radius: 4px;
-  color: #fff;
 }
 
 /* 
