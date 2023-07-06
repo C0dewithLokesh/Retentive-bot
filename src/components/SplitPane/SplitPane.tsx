@@ -9,8 +9,8 @@ import {
 } from "@ionic/react";
 
 import "./SplitPane.css";
-import '../SIdebarContent/SidebarContent.css'
-import 'animate.css'
+import "../SIdebarContent/SidebarContent.css";
+import "animate.css";
 
 import "./SplitPane.css";
 import { Redirect, Route } from "react-router";
@@ -28,6 +28,7 @@ const SplitPane = (props: Props) => {
   const [showPendingLeave, setShowPendingLeave] = useState(false);
   const [ShowTypeLeave, setShowTypeLeave] = useState(false);
   const [LeaveDropdown, setLeaveDropdown] = useState(false);
+  const [ShowHrDropdown, setShowHrDropdown] = useState(false);
 
   const surveyHandler = () => {
     if (showSurvey === true) {
@@ -40,11 +41,18 @@ const SplitPane = (props: Props) => {
   const showLeaveDropdownHandler = () => {
     if (LeaveDropdown === false) {
       setLeaveDropdown(true);
-    }
-    else {
+    } else {
       setLeaveDropdown(false);
     }
-  }
+  };
+
+  const hrDrodownhandler = () => {
+    if (ShowHrDropdown === false) {
+      setShowHrDropdown(true);
+    } else {
+      setShowHrDropdown(false);
+    }
+  };
 
   const pendingLeaveHandler = () => {
     if (showPendingLeave === false) {
@@ -55,13 +63,12 @@ const SplitPane = (props: Props) => {
   };
 
   const typeLeaveHandler = () => {
-    if(ShowTypeLeave === false) {
+    if (ShowTypeLeave === false) {
       setShowTypeLeave(true);
-    }
-    else {
+    } else {
       setShowTypeLeave(false);
     }
-  }
+  };
 
   const splitMenuHandler = () => {
     if (showSplitMenu === false) {
@@ -77,7 +84,6 @@ const SplitPane = (props: Props) => {
       contentId="main"
       className={`ion-splitpane ${showSplitMenu ? "visible" : "close"}`}
     >
-      
       <IonMenu
         contentId="main"
         className={`split-menu ${showSplitMenu ? "" : "close"}`}
@@ -96,7 +102,7 @@ const SplitPane = (props: Props) => {
                 <div className="sidebar-icon active animate__animated animate__rollIn">
                   <FontAwesomeIcon
                     icon={faRobot}
-                    style={{ color: "#7c3aed" }}
+                    style={{ color: "#7E55F1", height: "20px", width: "20px" }}
                   />
                 </div>
                 <p
@@ -109,7 +115,7 @@ const SplitPane = (props: Props) => {
               </div>
             </IonItem>
 
-            <div className="sidebar-item">
+            <div className="sidebar-item" onClick={surveyHandler}>
               <div
                 className={`sidebar-icon ${
                   showSurvey ? "active" : ""
@@ -117,8 +123,7 @@ const SplitPane = (props: Props) => {
               >
                 <IonIcon
                   icon={clipboardOutline}
-                  onClick={surveyHandler}
-                  style={{ color: "#7c3aed" }}
+                  style={{ color: "#7E55F1", height: "20px", width: "20px" }}
                 />
               </div>
               <p
@@ -130,7 +135,6 @@ const SplitPane = (props: Props) => {
               </p>
             </div>
 
-            {/* <IonItem className="ion-item leave-sidebar-item" routerLink="/leave"> */}
             <div
               className="sidebar-item leave-sidebar-item"
               onClick={showLeaveDropdownHandler}
@@ -138,9 +142,10 @@ const SplitPane = (props: Props) => {
               <div className="sidebar-icon animate__animated animate__fadeInUp">
                 <IonIcon
                   icon={chatbubbleEllipsesOutline}
-                  style={{ color: "#7c3aed" }}
+                  style={{ color: "#7E55F1", height: "20px", width: "20px" }}
                 />
               </div>
+
               <div className="sidebar-item-content">
                 <div className="sidebar-item-content-heading">
                   <p
@@ -152,6 +157,7 @@ const SplitPane = (props: Props) => {
                   </p>
                   <FaAngleDown className={`${LeaveDropdown ? "t-180" : ""}`} />
                 </div>
+
                 {LeaveDropdown && (
                   <ul className="dropdown-list">
                     <IonItem
@@ -170,20 +176,62 @@ const SplitPane = (props: Props) => {
                 )}
               </div>
             </div>
-            {/* </IonItem> */}
+
+            {/* CORE HR */}
+            <div className={`sidebar-item ${LeaveDropdown ? "m-68" : ""}`} onClick={hrDrodownhandler}>
+              <div
+                className={`sidebar-icon ${
+                  showSurvey ? "active" : ""
+                } animate__animated animate__fadeInLeft`}
+                style={{ minWidth: "20px" }}
+              >
+                <img
+                  src="../../../public/Filled_hr.svg"
+                  onClick={surveyHandler}
+                  style={{ color: "#7E55F1", display: "block" }}
+                />
+              </div>
+              <div className="sidebar-dropdown-container">
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                >
+                  Core HR
+                </p>
+                <FaAngleDown className={`${ShowHrDropdown ? "t-180" : ""}`} />
+              </div>
+            </div>
+            {/* CORE HR DropDown */}
+            <div className={`hr-dropdown ${ShowHrDropdown ? "" : "hide"}`}>
+              <p
+                className={`animate__animated ${
+                  showSplitMenu ? "animate__fadeInLeft" : ""
+                }`}
+              >
+                Document request
+              </p>
+              <p
+                className={`animate__animated ${
+                  showSplitMenu ? "animate__fadeInLeft" : ""
+                }`}
+              >
+                Policies
+              </p>
+            </div>
+
           </div>
         </div>
       </IonMenu>
 
       <IonRouterOutlet>
-        {/* <Route exact path="/pendingleave">
-          <Leave />
-        </Route> */}
-        {/* <Route exact path="/typeofleave">
-          <TypeofLeave />
-        </Route> */}
         <Route exact path="/home">
-          <Home showSurvey={showSurvey} showPendingLeave={showPendingLeave} ShowTypeLeave={ShowTypeLeave} splitMenuHandler={splitMenuHandler} />
+          <Home
+            showSurvey={showSurvey}
+            showPendingLeave={showPendingLeave}
+            ShowTypeLeave={ShowTypeLeave}
+            splitMenuHandler={splitMenuHandler}
+          />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
