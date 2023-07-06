@@ -15,7 +15,7 @@
 }
 
 .leave-page {
-    background-color: #f7f7f7;
+    background-color: #f3eeee;
     color: black;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -47,7 +47,8 @@
     align-items: center;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid rgb(69, 240, 69);
+    background-color: #fff;
+    border: 2px solid rgb(69, 240, 69);
     width: 100%;
     border-radius: 8px;
     gap: 10px;
@@ -65,7 +66,7 @@
 }
 
 .reason-content {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* 
@@ -117,6 +118,7 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 13px;
+    padding-left: 8px;
 }
 
 .leave-date label {
@@ -128,6 +130,7 @@
     padding: 10px;
     outline: black;
     border-radius: 5px;
+    background-color: #fff;
 }
 
 .leave-reason {
@@ -136,6 +139,7 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
+    padding-left: 8px;
 }
 
 .leave-reason label {
@@ -147,6 +151,8 @@
     height: 88px;
     outline: black;
     border-radius: 5px;
+    background-color: #fff;
+    padding: 4px;
 }
 
 .form-btn {

@@ -1,4 +1,3 @@
-import './SidebarContent.css'
 import { useState } from "react";
 import 'animate.css';
 import { FaAngleDown } from 'react-icons/fa';

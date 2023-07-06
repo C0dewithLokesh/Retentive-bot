@@ -19,7 +19,7 @@ const TypeofLeave = (props: Props) => {
         </div>
         <div className="leave-reason">
           <label htmlFor="leave-reason">Reason</label>
-          <textarea name="leave-reason" id="" cols={30} rows={10}></textarea>
+          <textarea name="leave-reason" placeholder="Type reason here..." id="" cols={30} rows={10}></textarea>
         </div>
         <button className="form-btn">Submit</button>
       </div>

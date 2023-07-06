@@ -8,13 +8,10 @@ import {
   IonSplitPane,
 } from "@ionic/react";
 
-import "./SplitPane.css";
-import "../SIdebarContent/SidebarContent.css";
 import "animate.css";
 
-import "./SplitPane.css";
 import { Redirect, Route } from "react-router";
-import Home from "../../pages/Home";
+import Home from "../home/Home";
 import { FaAngleDown } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
@@ -93,8 +90,6 @@ const SplitPane = (props: Props) => {
         {/* 
           SideBar Content 
         */}
-
-        {/* <SidebarContent showSplitMenu ={showSplitMenu} /> */}
         <div className={`main-sidebar`}>
           <div className="ion-padding p-10">
             <IonItem className="ion-item" routerLink="/home">
@@ -164,13 +159,13 @@ const SplitPane = (props: Props) => {
                       className="ion-item animate__animated animate__fadeInLeft dropdown-list-item"
                       onClick={pendingLeaveHandler}
                     >
-                      Pending List
+                      Leave Overview
                     </IonItem>
                     <IonItem
                       className="ion-item animate__animated animate__fadeInLeft dropdown-list-item"
                       onClick={typeLeaveHandler}
                     >
-                      Leave Type
+                      Apply for Leave
                     </IonItem>
                   </ul>
                 )}
@@ -202,6 +197,7 @@ const SplitPane = (props: Props) => {
                 <FaAngleDown className={`${ShowHrDropdown ? "t-180" : ""}`} />
               </div>
             </div>
+
             {/* CORE HR DropDown */}
             <div className={`hr-dropdown ${ShowHrDropdown ? "" : "hide"}`}>
               <p
@@ -211,6 +207,7 @@ const SplitPane = (props: Props) => {
               >
                 Document request
               </p>
+
               <p
                 className={`animate__animated ${
                   showSplitMenu ? "animate__fadeInLeft" : ""
@@ -220,10 +217,63 @@ const SplitPane = (props: Props) => {
               </p>
             </div>
 
+            {/* Employee Benefits */}
+            <div className={`sidebar-item`} >
+              <div
+                className={`sidebar-icon ${
+                  showSurvey ? "active" : ""
+                } animate__animated animate__fadeInLeft`}
+                style={{ minWidth: "20px" }}
+              >
+                <img
+                  src="../../../public/redeem_FILL0_wght300_GRAD0_opsz24 1.svg"
+                  onClick={surveyHandler}
+                  style={{ color: "#7E55F1", display: "block" }}
+                />
+              </div>
+              <div className="sidebar-dropdown-container">
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                >
+                  Employee Benefits
+                </p>
+                <FaAngleDown className={`${ShowHrDropdown ? "t-180" : ""}`} />
+              </div>
+            </div>
+
+            {/* Payroll */}
+            <div className={`sidebar-item`} >
+              <div
+                className={`sidebar-icon ${
+                  showSurvey ? "active" : ""
+                } animate__animated animate__fadeInLeft`}
+                style={{ minWidth: "20px" }}
+              >
+                <img
+                  src="../../../public/Filled_payslip.svg"
+                  onClick={surveyHandler}
+                  style={{ color: "#7E55F1", display: "block" }}
+                />
+              </div>
+              <div className="sidebar-dropdown-container">
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                >
+                  Payroll
+                </p>
+                <FaAngleDown className={`${ShowHrDropdown ? "t-180" : ""}`} />
+              </div>
+            </div>
+
           </div>
         </div>
       </IonMenu>
 
+      {/* HOME */}
       <IonRouterOutlet>
         <Route exact path="/home">
           <Home

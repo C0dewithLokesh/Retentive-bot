@@ -5,7 +5,6 @@ type Props = {};
 
 const Leave = (props: Props) => {
   return (
-    // <IonPage className="ion-page pending-page" id="main">
       <div className="pending-leaves leave-page">
         <p>Pending Leaves</p>
         <div className="leave-reasons">
@@ -23,7 +22,6 @@ const Leave = (props: Props) => {
           </div>
         </div>
       </div>
-    // </IonPage>
   );
 };
 

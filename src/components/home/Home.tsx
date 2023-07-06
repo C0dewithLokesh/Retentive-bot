@@ -1,5 +1,4 @@
 import {
-  IonButton,
   IonButtons,
   IonHeader,
   IonIcon,
@@ -10,16 +9,15 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import "./Home.css";
 
 import {
   sendOutline,
-  starSharp,
 } from "ionicons/icons";
 
 import { useRef, useState } from "react";
-import Leave from "./leave/Leave";
-import TypeofLeave from "./leave/TypeofLeave";
+import Leave from "../leave/Leave";
+import TypeofLeave from "../leave/TypeofLeave";
+import Survey from "./Survey";
 
 interface Message {
   text: string;
@@ -104,57 +102,7 @@ const Home: React.FC = ({ showSurvey, showPendingLeave, ShowTypeLeave, splitMenu
           {ShowTypeLeave && <TypeofLeave />}
           {showPendingLeave && <Leave />}
 
-          {showSurvey && (
-            <div className="msg-content bot">
-              <div className={`msg-content-inside bot survey`}>
-                <div className="survey-heading">
-                  <div className="survey-name">Satisfaction Survey</div>
-                  <div className="question-no">Question: 1</div>
-                </div>
-                <div className="survey-question">
-                  <p>
-                    How satisfied are you with the respect from your coworkers
-                  </p>
-                </div>
-
-                <div className="survey-stars">
-                  <IonIcon
-                    icon={starSharp}
-                    className="star-icon"
-                    size="large"
-                  />
-                  <IonIcon
-                    icon={starSharp}
-                    className="star-icon"
-                    size="large"
-                  />
-                  <IonIcon
-                    icon={starSharp}
-                    className="star-icon"
-                    size="large"
-                  />
-                  <IonIcon
-                    icon={starSharp}
-                    className="star-icon"
-                    size="large"
-                  />
-                  <IonIcon
-                    icon={starSharp}
-                    className="star-icon"
-                    size="large"
-                  />
-                </div>
-                <div className="survey-btn">
-                  <IonButton className="previous-btn" fill="clear">
-                    Previous
-                  </IonButton>
-                  <IonButton className="next-btn" fill="clear">
-                    Next
-                  </IonButton>
-                </div>
-              </div>
-            </div>
-          )}
+          {showSurvey && <Survey />}
 
           <div className="msg-content user">
             <div className={`msg-content-inside user`}>
