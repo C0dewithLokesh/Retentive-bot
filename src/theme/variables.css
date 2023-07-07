@@ -258,21 +258,6 @@ ion-router-outlet {
   Split Pane
 */
 
-.menu-header {
-  box-shadow: none;
-}
-
-.menu-btn {
-  --background: transparent;
-  --box-shadow: none;
-  --min-height: 81px;
-  position: absolute;
-  z-index: 22;
-  --side-max-width: 50px;
-  --side-min-width: 20px;
-  height: 81px;
-}
-
 .split-menu {
   position: absolute;
   max-width: 50%;

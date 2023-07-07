@@ -82,7 +82,7 @@ const SplitPane = () => {
         contentId="main"
         className={`split-menu ${showSplitMenu ? "" : "close"}`}
       >
-        <IonHeader className="menu-header"></IonHeader>
+        <IonHeader className="menu-header hidden shadow-none"></IonHeader>
 
         {/* 
           SideBar Content 
