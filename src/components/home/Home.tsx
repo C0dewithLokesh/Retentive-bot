@@ -10,9 +10,7 @@ import {
   IonToolbar,
 } from "@ionic/react";
 
-import {
-  sendOutline,
-} from "ionicons/icons";
+import { sendOutline } from "ionicons/icons";
 
 import { useRef, useState } from "react";
 import Leave from "../leave/Leave";
@@ -24,7 +22,19 @@ interface Message {
   isUser: boolean;
 }
 
-const Home: React.FC = ({ showSurvey, showPendingLeave, ShowTypeLeave, splitMenuHandler }) => {
+interface HomeProps {
+  showSurvey: boolean;
+  showPendingLeave: boolean;
+  ShowTypeLeave: boolean;
+  splitMenuHandler: any;
+}
+
+const Home: React.FC<HomeProps> = ({
+  showSurvey,
+  showPendingLeave,
+  ShowTypeLeave,
+  splitMenuHandler,
+}) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState("");
 
@@ -51,11 +61,11 @@ const Home: React.FC = ({ showSurvey, showPendingLeave, ShowTypeLeave, splitMenu
     }, 500);
   };
 
-
   return (
     <IonPage id="main-content" className="home-page">
-      <IonHeader className="header">
-        <IonToolbar className="header-wrapper">
+      {/* HEADER */}
+      <IonHeader className="header shadow-none border-b border-[#7c3aed] w-screen -ml-[50px]">
+        <IonToolbar className="header-wrapper ">
           <IonButtons
             slot="start"
             className="menu-ion-btn"
@@ -67,14 +77,16 @@ const Home: React.FC = ({ showSurvey, showPendingLeave, ShowTypeLeave, splitMenu
             ></IonMenuButton>
           </IonButtons>
           <IonTitle className="header-container">
-            <p className="user-name mt-5">Retentive Bot</p>
-            <p className="user-status mb-4">Active</p>
+            <p className="user-name mt-5 mb-0 font-medium">Retentive Bot</p>
+            <p className="user-status mb-4 text-sm text-[#4ac14a] mt-1">
+              Active
+            </p>
           </IonTitle>
         </IonToolbar>
       </IonHeader>
 
-      <div className="ion-padding msg-section">
-        <div className="msg-container">
+      <div className="ion-padding msg-section flex flex-col items-start overflow-y-scroll w-full p-[10px]">
+        <div className="msg-container max-h-full w-full overflow-y-scroll flex flex-col-reverse">
           {messages
             .slice()
             .reverse()
@@ -95,7 +107,8 @@ const Home: React.FC = ({ showSurvey, showPendingLeave, ShowTypeLeave, splitMenu
                   </span>
                 </div>
               </div>
-            ))}
+            ))
+          }
 
           {/* Default Messages */}
 

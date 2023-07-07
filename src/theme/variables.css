@@ -279,7 +279,7 @@ ion-router-outlet {
   min-width: 50px;
   transition: max-width 0.5s ease-in-out;
   z-index: 1;
-  margin-top: 83px;
+  margin-top: 86px;
   border-right: 1px solid grey;
 }
 
@@ -412,53 +412,9 @@ ion-router-outlet {
   Header 
 */
 
-.header-wrapper {
-  padding-left: 10px;
-}
-
-.header {
-  box-shadow: none;
-  border-bottom: 1px solid rgb(124 58 237);
-  width: 100vh;
-  margin-left: -60px;
-}
-
-.header-container {
-  padding-left: 20px;
-}
-
-.user-name {
-  font-weight: 500;
-  margin-bottom: 0;
-}
-
-.user-status {
-  font-size: 15px;
-  color: rgb(74, 193, 74);
-  margin-top: 5px;
-}
-
 /* 
   msg section
 */
-
-.msg-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  overflow-y: scroll;
-  width: 100%;
-  padding: 10px;
-}
-
-.msg-container {
-  max-height: 100%;
-  width: 100%;
-  overflow-y: auto;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column-reverse;
-}
 
 .msg-container::-webkit-scrollbar {
   display: none;
