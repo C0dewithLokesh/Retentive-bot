@@ -87,7 +87,7 @@ const SplitPane = () => {
         {/* 
           SideBar Content 
         */}
-        <div className={`main-sidebar`}>
+        <div className={`main-sidebar w-40 h-full`}>
           <div className="ion-padding p-10">
             {/* ChatBot */}
             <IonItem className="ion-item" routerLink="/home">

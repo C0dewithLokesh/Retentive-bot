@@ -302,10 +302,6 @@ ion-router-outlet {
   gap: 10px;
 }
 
-.margin-96 {
-  margin-top: 96px;
-}
-
 .hr-dropdown p {
   margin: 0;
 }
@@ -313,11 +309,6 @@ ion-router-outlet {
 /* 
   SideBarContent
 */
-
-.main-sidebar {
-  width: 160px;
-  height: 100%;
-}
 
 .sidebar-item {
   padding: 0 5px;
