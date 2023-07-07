@@ -302,10 +302,6 @@ ion-router-outlet {
   gap: 10px;
 }
 
-.hr-dropdown.hide {
-  display: none;
-}
-
 .margin-96 {
   margin-top: 96px;
 }

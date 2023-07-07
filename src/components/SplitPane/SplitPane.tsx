@@ -17,37 +17,34 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
 import { chatbubbleEllipsesOutline, clipboardOutline } from "ionicons/icons";
 
-type Props = {};
+interface Dropdowns {
+  [key: string]: boolean;
+}
 
-const SplitPane = (props: Props) => {
+const SplitPane = () => {
   const [showSurvey, setShowSurvey] = useState(false);
   const [showSplitMenu, setshowSplitMenu] = useState(false);
   const [showPendingLeave, setShowPendingLeave] = useState(false);
   const [ShowTypeLeave, setShowTypeLeave] = useState(false);
-  const [LeaveDropdown, setLeaveDropdown] = useState(false);
-  const [ShowHrDropdown, setShowHrDropdown] = useState(false);
+
+  const [dropdowns, setDropdowns] = useState<Dropdowns>({
+    leaveDropdown: false,
+    hrDropdown: false,
+    // Add more dropdowns here if needed
+  });
+
+  const dropdownHandler = (dropdownName: string) => {
+    setDropdowns((prevState) => ({
+      ...prevState,
+      [dropdownName]: !prevState[dropdownName],
+    }));
+  };
 
   const surveyHandler = () => {
     if (showSurvey === true) {
       setShowSurvey(false);
     } else {
       setShowSurvey(true);
-    }
-  };
-
-  const showLeaveDropdownHandler = () => {
-    if (LeaveDropdown === false) {
-      setLeaveDropdown(true);
-    } else {
-      setLeaveDropdown(false);
-    }
-  };
-
-  const hrDrodownhandler = () => {
-    if (ShowHrDropdown === false) {
-      setShowHrDropdown(true);
-    } else {
-      setShowHrDropdown(false);
     }
   };
 
@@ -92,6 +89,7 @@ const SplitPane = (props: Props) => {
         */}
         <div className={`main-sidebar`}>
           <div className="ion-padding p-10">
+            {/* ChatBot */}
             <IonItem className="ion-item" routerLink="/home">
               <div className="sidebar-item">
                 <div className="sidebar-icon active animate__animated animate__rollIn">
@@ -110,6 +108,7 @@ const SplitPane = (props: Props) => {
               </div>
             </IonItem>
 
+            {/* SURVEY */}
             <div className="sidebar-item" onClick={surveyHandler}>
               <div
                 className={`sidebar-icon ${
@@ -130,50 +129,64 @@ const SplitPane = (props: Props) => {
               </p>
             </div>
 
+            {/* Leave */}
             <div
-              className="sidebar-item leave-sidebar-item"
-              onClick={showLeaveDropdownHandler}
+              className={`sidebar-item`}
+              onClick={() => dropdownHandler("leaveDropdown")}
             >
-              <div className="sidebar-icon animate__animated animate__fadeInUp">
+              <div
+                className={`sidebar-icon ${
+                  showSurvey ? "active" : ""
+                } animate__animated animate__fadeInLeft`}
+                style={{ minWidth: "20px" }}
+              >
                 <IonIcon
                   icon={chatbubbleEllipsesOutline}
                   style={{ color: "#7E55F1", height: "20px", width: "20px" }}
                 />
               </div>
-
-              <div className="sidebar-item-content">
-                <div className="sidebar-item-content-heading">
-                  <p
-                    className={`animate__animated ${
-                      showSplitMenu ? "animate__fadeInLeft" : ""
-                    }`}
-                  >
-                    Leave
-                  </p>
-                  <FaAngleDown className={`${LeaveDropdown ? "t-180" : ""}`} />
-                </div>
-
-                {LeaveDropdown && (
-                  <ul className="dropdown-list">
-                    <IonItem
-                      className="ion-item animate__animated animate__fadeInLeft dropdown-list-item"
-                      onClick={pendingLeaveHandler}
-                    >
-                      Leave Overview
-                    </IonItem>
-                    <IonItem
-                      className="ion-item animate__animated animate__fadeInLeft dropdown-list-item"
-                      onClick={typeLeaveHandler}
-                    >
-                      Apply for Leave
-                    </IonItem>
-                  </ul>
-                )}
+              <div className="sidebar-dropdown-container">
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                >
+                  Leave
+                </p>
+                <FaAngleDown
+                  className={`${dropdowns.leaveDropdown ? "t-180" : ""}`}
+                />
               </div>
             </div>
 
+            {/* Leave DropDown */}
+            {dropdowns.leaveDropdown && (
+              <div className={`hr-dropdown`}>
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                  onClick={pendingLeaveHandler}
+                >
+                  Leave Overview
+                </p>
+
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                  onClick={typeLeaveHandler}
+                >
+                  Apply for Leave
+                </p>
+              </div>
+            )}
+
             {/* CORE HR */}
-            <div className={`sidebar-item ${LeaveDropdown ? "margin-96" : ""}`} onClick={hrDrodownhandler}>
+            <div
+              className={`sidebar-item`}
+              onClick={() => dropdownHandler("hrDropdown")}
+            >
               <div
                 className={`sidebar-icon ${
                   showSurvey ? "active" : ""
@@ -194,31 +207,35 @@ const SplitPane = (props: Props) => {
                 >
                   Core HR
                 </p>
-                <FaAngleDown className={`${ShowHrDropdown ? "t-180" : ""}`} />
+                <FaAngleDown
+                  className={`${dropdowns.hrDropdown ? "t-180" : ""}`}
+                />
               </div>
             </div>
 
             {/* CORE HR DropDown */}
-            <div className={`hr-dropdown ${ShowHrDropdown ? "" : "hide"}`}>
-              <p
-                className={`animate__animated ${
-                  showSplitMenu ? "animate__fadeInLeft" : ""
-                }`}
-              >
-                Document request
-              </p>
+            {dropdowns.hrDropdown && (
+              <div className={`hr-dropdown`}>
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                >
+                  Document request
+                </p>
 
-              <p
-                className={`animate__animated ${
-                  showSplitMenu ? "animate__fadeInLeft" : ""
-                }`}
-              >
-                Policies
-              </p>
-            </div>
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                >
+                  Policies
+                </p>
+              </div>
+            )}
 
             {/* Employee Benefits */}
-            <div className={`sidebar-item`} >
+            <div className={`sidebar-item`}>
               <div
                 className={`sidebar-icon ${
                   showSurvey ? "active" : ""
@@ -239,12 +256,12 @@ const SplitPane = (props: Props) => {
                 >
                   Employee Benefits
                 </p>
-                <FaAngleDown className={`${ShowHrDropdown ? "t-180" : ""}`} />
+                <FaAngleDown className={`${dropdowns.hrDropdown ? "t-180" : ""}`} />
               </div>
             </div>
 
             {/* Payroll */}
-            <div className={`sidebar-item`} >
+            <div className={`sidebar-item`}>
               <div
                 className={`sidebar-icon ${
                   showSurvey ? "active" : ""
@@ -265,15 +282,14 @@ const SplitPane = (props: Props) => {
                 >
                   Payroll
                 </p>
-                <FaAngleDown className={`${ShowHrDropdown ? "t-180" : ""}`} />
+                <FaAngleDown className={`${dropdowns.hrDropdown ? "t-180" : ""}`} />
               </div>
             </div>
-
           </div>
         </div>
       </IonMenu>
 
-      {/* HOME */}
+      {/* HOME Component */}
       <IonRouterOutlet>
         <Route exact path="/home">
           <Home
