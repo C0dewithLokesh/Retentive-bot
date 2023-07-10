@@ -33,14 +33,27 @@ const SplitPane = () => {
     // Add more dropdowns here if needed
   });
 
-  const dropdownHandler = (dropdownName: string) => {
+  const dropdownHandler = (dropdownName: string, closeDropdown?: boolean) => {
+    if(showSplitMenu === false) {
+      setshowSplitMenu(true)
+    }
+
     setDropdowns((prevState) => ({
       ...prevState,
       [dropdownName]: !prevState[dropdownName],
     }));
+
+    if (closeDropdown) {
+      setshowSplitMenu(false);
+    }
+  };
+
+  const sidebarHandler = () => {
+    setshowSplitMenu(false);
   };
 
   const surveyHandler = () => {
+    setshowSplitMenu(false);
     if (showSurvey === true) {
       setShowSurvey(false);
     } else {
@@ -54,6 +67,8 @@ const SplitPane = () => {
     } else {
       setShowPendingLeave(false);
     }
+
+    dropdownHandler("leaveDropdown", true);
   };
 
   const typeLeaveHandler = () => {
@@ -62,6 +77,8 @@ const SplitPane = () => {
     } else {
       setShowTypeLeave(false);
     }
+
+    dropdownHandler("leaveDropdown", true);
   };
 
   const splitMenuHandler = () => {
@@ -91,7 +108,7 @@ const SplitPane = () => {
           <div className="ion-padding p-10">
             {/* ChatBot */}
             <IonItem className="ion-item" routerLink="/home">
-              <div className="sidebar-item">
+              <div className="sidebar-item" onClick={sidebarHandler}>
                 <div className="sidebar-icon active animate__animated animate__rollIn">
                   <FontAwesomeIcon
                     icon={faRobot}
