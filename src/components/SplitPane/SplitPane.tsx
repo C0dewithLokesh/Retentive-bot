@@ -48,12 +48,22 @@ const SplitPane = () => {
     }
   };
 
+  // Autoclose sidebar and dropdown
   const sidebarHandler = () => {
+    
+    // reset all dropdown value 
+    setDropdowns((prevState) => ({
+      ...prevState,
+      leaveDropdown: false,
+      hrDropdown: false,
+      // Add more dropdowns here if needed
+    }));
+
     setshowSplitMenu(false);
   };
 
   const surveyHandler = () => {
-    setshowSplitMenu(false);
+    sidebarHandler();
     if (showSurvey === true) {
       setShowSurvey(false);
     } else {
@@ -67,7 +77,6 @@ const SplitPane = () => {
     } else {
       setShowPendingLeave(false);
     }
-
     dropdownHandler("leaveDropdown", true);
   };
 
@@ -316,9 +325,7 @@ const SplitPane = () => {
             splitMenuHandler={splitMenuHandler}
           />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
+        
       </IonRouterOutlet>
     </IonSplitPane>
   );

@@ -1,4 +1,4 @@
-import { IonApp, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
@@ -20,13 +20,23 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import SplitPane from './components/SplitPane/SplitPane';
+import Login from './components/login/Login';
+import { Redirect, Route } from 'react-router';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <SplitPane />
+      <Route exact path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/">
+        <Redirect to="/login" />
+      </Route>
+      <Route exact path="/home">
+        <SplitPane />
+      </Route>
     </IonReactRouter>
   </IonApp>
 );
