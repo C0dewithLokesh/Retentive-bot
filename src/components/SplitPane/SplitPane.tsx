@@ -24,14 +24,26 @@ interface Dropdowns {
 const SplitPane = () => {
   const [showSurvey, setShowSurvey] = useState(false);
   const [showSplitMenu, setshowSplitMenu] = useState(false);
-  const [showPendingLeave, setShowPendingLeave] = useState(false);
-  const [ShowTypeLeave, setShowTypeLeave] = useState(false);
-
   const [dropdowns, setDropdowns] = useState<Dropdowns>({
     leaveDropdown: false,
     hrDropdown: false,
     // Add more dropdowns here if needed
   });
+
+  const [showPendingLeave, setShowPendingLeave] = useState(false);
+  const [ShowTypeLeave, setShowTypeLeave] = useState(false);
+  const [showResignation, setShowResignation] = useState(false);
+  const [showReliving, setShowReliving] = useState(false);
+
+  
+  const splitMenuHandler = () => {
+    if (showSplitMenu === false) {
+      setshowSplitMenu(true);
+    } else {
+      setshowSplitMenu(false);
+    }
+    resetAllDropdowns();
+  };
 
   const dropdownHandler = (dropdownName: string, closeDropdown?: boolean) => {
     if(showSplitMenu === false) {
@@ -48,55 +60,50 @@ const SplitPane = () => {
     }
   };
 
-  // Autoclose sidebar and dropdown
-  const sidebarHandler = () => {
-    
-    // reset all dropdown value 
+  // reset all dropdown value
+  const resetAllDropdowns = () => { 
     setDropdowns((prevState) => ({
       ...prevState,
       leaveDropdown: false,
       hrDropdown: false,
       // Add more dropdowns here if needed
     }));
+  }
 
+  // Autoclose sidebar and dropdown
+  const sidebarHandler = () => {
+    resetAllDropdowns();
     setshowSplitMenu(false);
   };
 
+  // Survey Handlers
   const surveyHandler = () => {
     sidebarHandler();
-    if (showSurvey === true) {
-      setShowSurvey(false);
-    } else {
-      setShowSurvey(true);
-    }
+    setShowSurvey((prevValue) => !prevValue);
   };
 
+  // Leave Handlers
   const pendingLeaveHandler = () => {
-    if (showPendingLeave === false) {
-      setShowPendingLeave(true);
-    } else {
-      setShowPendingLeave(false);
-    }
+    setShowPendingLeave((prevValue) => !prevValue);
     dropdownHandler("leaveDropdown", true);
   };
 
   const typeLeaveHandler = () => {
-    if (ShowTypeLeave === false) {
-      setShowTypeLeave(true);
-    } else {
-      setShowTypeLeave(false);
-    }
-
+    setShowTypeLeave((prevValue) => !prevValue);
     dropdownHandler("leaveDropdown", true);
   };
 
-  const splitMenuHandler = () => {
-    if (showSplitMenu === false) {
-      setshowSplitMenu(true);
-    } else {
-      setshowSplitMenu(false);
-    }
+  // Core HR handlers
+  const resignationHandler = () => {
+    setShowResignation((prevValue) => !prevValue);
+    dropdownHandler("hrDropdown", true);
   };
+
+  const relivingHandler = () => {
+    setShowReliving((prevValue) => !prevValue);
+    dropdownHandler("hrDropdown", true);
+  };
+
 
   return (
     <IonSplitPane
@@ -221,7 +228,6 @@ const SplitPane = () => {
               >
                 <img
                   src="/Filled_hr.svg"
-                  onClick={surveyHandler}
                   style={{ color: "#7E55F1", display: "block" }}
                 />
               </div>
@@ -254,8 +260,26 @@ const SplitPane = () => {
                   className={`animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
+                  onClick={resignationHandler}
+                >
+                  Apply for resignation
+                </p>
+
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
                 >
                   Policies
+                </p>
+
+                <p
+                  className={`text-end animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                  onClick={relivingHandler}
+                >
+                  Apply for reliving letter
                 </p>
               </div>
             )}
@@ -323,6 +347,8 @@ const SplitPane = () => {
             showPendingLeave={showPendingLeave}
             ShowTypeLeave={ShowTypeLeave}
             splitMenuHandler={splitMenuHandler}
+            showResignation={showResignation}
+            showReliving={showReliving}
           />
         </Route>
         

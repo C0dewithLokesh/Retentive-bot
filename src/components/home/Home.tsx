@@ -16,6 +16,8 @@ import { useRef, useState } from "react";
 import Leave from "../leave/Leave";
 import TypeofLeave from "../leave/TypeofLeave";
 import Survey from "./Survey";
+import Resignation from "../corehr/Resignation";
+import Reliving from "../corehr/Reliving";
 
 interface Message {
   text: string;
@@ -27,6 +29,8 @@ interface HomeProps {
   showPendingLeave: boolean;
   ShowTypeLeave: boolean;
   splitMenuHandler: any;
+  showResignation: boolean;
+  showReliving: boolean;
 }
 
 const Home: React.FC<HomeProps> = ({
@@ -34,6 +38,8 @@ const Home: React.FC<HomeProps> = ({
   showPendingLeave,
   ShowTypeLeave,
   splitMenuHandler,
+  showResignation,
+  showReliving
 }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState("");
@@ -112,6 +118,11 @@ const Home: React.FC<HomeProps> = ({
 
           {/* Default Messages */}
 
+          {/* CORE HR */}
+          {showReliving && <Reliving />}
+          {showResignation && <Resignation />}
+
+          {/* Leave */}
           {ShowTypeLeave && <TypeofLeave />}
           {showPendingLeave && <Leave />}
 
