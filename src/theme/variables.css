@@ -244,6 +244,16 @@ body {
   line-height: normal;
 }
 
+/* 
+lOGIN
+*/
+
+.login-btn {
+  --background: none;
+  --box-shadow: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 ion-router-outlet {
   min-width: 86%;
   margin-left: 50px;
