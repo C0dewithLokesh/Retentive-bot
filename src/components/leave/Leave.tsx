@@ -14,7 +14,7 @@ const reasons: Reason[] = [
 const Leave = () => {
   return (
     <div className="pending-leaves leave-page w-full font-medium">
-      <p>Pending Leaves</p>
+      <p className="leave-page-heading">Pending Leaves</p>
       <div className="leave-reasons flex center flex-col gap-[10px] px-1 pb-2">
         {reasons.map((reason) => (
           <LeaveReason

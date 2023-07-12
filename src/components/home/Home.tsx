@@ -16,6 +16,13 @@ import { useRef, useState } from "react";
 import Leave from "../leave/Leave";
 import TypeofLeave from "../leave/TypeofLeave";
 import Survey from "./Survey";
+import Resignation from "../corehr/Resignation";
+import Reliving from "../corehr/Reliving";
+import Policies from "../corehr/Policies";
+import Reimbursement from "../employee/Reimbursement";
+import Payslips from "../payroll/Payslips";
+import DocumentRequest from "../corehr/DocumentRequest";
+import HolidaySheet from "../leave/HolidaySheet";
 
 interface Message {
   text: string;
@@ -26,14 +33,28 @@ interface HomeProps {
   showSurvey: boolean;
   showPendingLeave: boolean;
   ShowTypeLeave: boolean;
+  showHolidaySheet: boolean;
   splitMenuHandler: any;
+  showDocumentRequest: boolean;
+  showResignation: boolean;
+  showPolicies: boolean;
+  showReliving: boolean;
+  showReimbursement: boolean;
+  showPayslips: boolean;
 }
 
 const Home: React.FC<HomeProps> = ({
   showSurvey,
   showPendingLeave,
   ShowTypeLeave,
+  showHolidaySheet,
   splitMenuHandler,
+  showDocumentRequest,
+  showResignation,
+  showPolicies,
+  showReliving,
+  showReimbursement,
+  showPayslips
 }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState("");
@@ -112,6 +133,20 @@ const Home: React.FC<HomeProps> = ({
 
           {/* Default Messages */}
 
+          {/* Payroll Components */}
+          {showPayslips && <Payslips />}
+
+          {/* Employee Components */}
+          {showReimbursement && <Reimbursement />}
+
+          {/* CORE HR */}
+          {showReliving && <Reliving />}
+          {showPolicies && <Policies />}
+          {showResignation && <Resignation />}
+          {showDocumentRequest && <DocumentRequest />}
+
+          {/* Leave */}
+          {showHolidaySheet && <HolidaySheet />}
           {ShowTypeLeave && <TypeofLeave />}
           {showPendingLeave && <Leave />}
 
