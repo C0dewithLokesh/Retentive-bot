@@ -34,6 +34,7 @@ const SplitPane = () => {
 
   const [showPendingLeave, setShowPendingLeave] = useState(false);
   const [ShowTypeLeave, setShowTypeLeave] = useState(false);
+  const [showDocumentRequest, setShowDocumentRequest] = useState(false);
   const [showResignation, setShowResignation] = useState(false);
   const [showPolicies, setShowPolicies] = useState(false);
   const [showReliving, setShowReliving] = useState(false);
@@ -99,6 +100,11 @@ const SplitPane = () => {
   };
 
   // Core HR handlers
+  const documentRequestHandler = () => {
+    setShowDocumentRequest((prevValue) => !prevValue);
+    sidebarHandler();
+  };
+
   const resignationHandler = () => {
     setShowResignation((prevValue) => !prevValue);
     sidebarHandler();
@@ -273,6 +279,7 @@ const SplitPane = () => {
                   className={`animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
+                  onClick={documentRequestHandler}
                 >
                   Document request
                 </p>
@@ -406,6 +413,7 @@ const SplitPane = () => {
             showPendingLeave={showPendingLeave}
             ShowTypeLeave={ShowTypeLeave}
             splitMenuHandler={splitMenuHandler}
+            showDocumentRequest={showDocumentRequest}
             showResignation={showResignation}
             showPolicies={showPolicies}
             showReliving={showReliving}
