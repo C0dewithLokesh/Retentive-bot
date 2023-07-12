@@ -63,7 +63,7 @@ const HolidaySheet = () => {
             <span className="text-[20px]">05</span>
             <span className="text-[14px] font-normal font-[Inter]">2023</span>
           </div>
-          <p className="text-[12px]">Buddha Purnima</p>
+          <p className="text-[12px] mb-[13px]">Buddha Purnima</p>
         </div>
 
         <div className="w-[90px] text-center">
