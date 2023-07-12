@@ -34,6 +34,7 @@ const SplitPane = () => {
 
   const [showPendingLeave, setShowPendingLeave] = useState(false);
   const [ShowTypeLeave, setShowTypeLeave] = useState(false);
+  const [showHolidaySheet, setShowHolidaySheet] = useState(false);
   const [showDocumentRequest, setShowDocumentRequest] = useState(false);
   const [showResignation, setShowResignation] = useState(false);
   const [showPolicies, setShowPolicies] = useState(false);
@@ -96,6 +97,11 @@ const SplitPane = () => {
 
   const typeLeaveHandler = () => {
     setShowTypeLeave((prevValue) => !prevValue);
+    sidebarHandler();
+  };
+
+  const holidaySheetHandler = () => {
+    setShowHolidaySheet((prevValue) => !prevValue);
     sidebarHandler();
   };
 
@@ -221,7 +227,7 @@ const SplitPane = () => {
 
             {/* Leave DropDown */}
             {dropdowns.leaveDropdown && (
-              <div className={`hr-dropdown`}>
+              <div className={`hr-dropdown text-right`}>
                 <p
                   className={`animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
@@ -238,6 +244,15 @@ const SplitPane = () => {
                   onClick={typeLeaveHandler}
                 >
                   Apply for Leave
+                </p>
+
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                  onClick={holidaySheetHandler}
+                >
+                  Company holiday sheet
                 </p>
               </div>
             )}
@@ -412,6 +427,7 @@ const SplitPane = () => {
             showSurvey={showSurvey}
             showPendingLeave={showPendingLeave}
             ShowTypeLeave={ShowTypeLeave}
+            showHolidaySheet={showHolidaySheet}
             splitMenuHandler={splitMenuHandler}
             showDocumentRequest={showDocumentRequest}
             showResignation={showResignation}

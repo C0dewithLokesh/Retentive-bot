@@ -22,6 +22,7 @@ import Policies from "../corehr/Policies";
 import Reimbursement from "../employee/Reimbursement";
 import Payslips from "../payroll/Payslips";
 import DocumentRequest from "../corehr/DocumentRequest";
+import HolidaySheet from "../leave/HolidaySheet";
 
 interface Message {
   text: string;
@@ -32,6 +33,7 @@ interface HomeProps {
   showSurvey: boolean;
   showPendingLeave: boolean;
   ShowTypeLeave: boolean;
+  showHolidaySheet: boolean;
   splitMenuHandler: any;
   showDocumentRequest: boolean;
   showResignation: boolean;
@@ -45,6 +47,7 @@ const Home: React.FC<HomeProps> = ({
   showSurvey,
   showPendingLeave,
   ShowTypeLeave,
+  showHolidaySheet,
   splitMenuHandler,
   showDocumentRequest,
   showResignation,
@@ -143,6 +146,7 @@ const Home: React.FC<HomeProps> = ({
           {showDocumentRequest && <DocumentRequest />}
 
           {/* Leave */}
+          {showHolidaySheet && <HolidaySheet />}
           {ShowTypeLeave && <TypeofLeave />}
           {showPendingLeave && <Leave />}
 
