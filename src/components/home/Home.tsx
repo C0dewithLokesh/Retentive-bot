@@ -20,6 +20,7 @@ import Resignation from "../corehr/Resignation";
 import Reliving from "../corehr/Reliving";
 import Policies from "../corehr/Policies";
 import Reimbursement from "../employee/Reimbursement";
+import Payslips from "../payroll/Payslips";
 
 interface Message {
   text: string;
@@ -35,6 +36,7 @@ interface HomeProps {
   showPolicies: boolean;
   showReliving: boolean;
   showReimbursement: boolean;
+  showPayslips: boolean;
 }
 
 const Home: React.FC<HomeProps> = ({
@@ -45,7 +47,8 @@ const Home: React.FC<HomeProps> = ({
   showResignation,
   showPolicies,
   showReliving,
-  showReimbursement
+  showReimbursement,
+  showPayslips
 }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState("");
@@ -123,6 +126,9 @@ const Home: React.FC<HomeProps> = ({
           }
 
           {/* Default Messages */}
+
+          {/* Payroll Components */}
+          {showPayslips && <Payslips />}
 
           {/* Employee Components */}
           {showReimbursement && <Reimbursement />}

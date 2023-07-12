@@ -27,7 +27,8 @@ const SplitPane = () => {
   const [dropdowns, setDropdowns] = useState<Dropdowns>({
     leaveDropdown: false,
     hrDropdown: false,
-    employeeDropdown: false
+    employeeDropdown: false,
+    payrollDropdown: false,
     // Add more dropdowns here if needed
   });
 
@@ -37,8 +38,8 @@ const SplitPane = () => {
   const [showPolicies, setShowPolicies] = useState(false);
   const [showReliving, setShowReliving] = useState(false);
   const [showReimbursement, setShowReimbursement] = useState(false);
+  const [showPayslips, setShowPayslips] = useState(false);
 
-  
   const splitMenuHandler = () => {
     if (showSplitMenu === false) {
       setshowSplitMenu(true);
@@ -49,8 +50,8 @@ const SplitPane = () => {
   };
 
   const dropdownHandler = (dropdownName: string, closeDropdown?: boolean) => {
-    if(showSplitMenu === false) {
-      setshowSplitMenu(true)
+    if (showSplitMenu === false) {
+      setshowSplitMenu(true);
     }
 
     setDropdowns((prevState) => ({
@@ -64,14 +65,15 @@ const SplitPane = () => {
   };
 
   // reset all dropdown value
-  const resetAllDropdowns = () => { 
+  const resetAllDropdowns = () => {
     setDropdowns((prevState) => ({
       ...prevState,
       leaveDropdown: false,
       hrDropdown: false,
-      employeeDropdown: false
+      employeeDropdown: false,
+      payrollDropdown: false,
     }));
-  }
+  };
 
   // Autoclose sidebar and dropdown
   const sidebarHandler = () => {
@@ -118,6 +120,11 @@ const SplitPane = () => {
     sidebarHandler();
   };
 
+  // Payslips handlers
+  const payslipsHandler = () => {
+    setShowPayslips((prevValue) => !prevValue);
+    sidebarHandler();
+  };
 
   return (
     <IonSplitPane
@@ -300,7 +307,8 @@ const SplitPane = () => {
             )}
 
             {/* Employee Benefits */}
-            <div className={`sidebar-item`}
+            <div
+              className={`sidebar-item`}
               onClick={() => dropdownHandler("employeeDropdown")}
             >
               <div
@@ -322,7 +330,9 @@ const SplitPane = () => {
                 >
                   Employee Benefits
                 </p>
-                <FaAngleDown className={`${dropdowns.employeeDropdown ? "t-180" : ""}`} />
+                <FaAngleDown
+                  className={`${dropdowns.employeeDropdown ? "t-180" : ""}`}
+                />
               </div>
             </div>
 
@@ -341,7 +351,10 @@ const SplitPane = () => {
             )}
 
             {/* Payroll */}
-            <div className={`sidebar-item`}>
+            <div
+              className={`sidebar-item`}
+              onClick={() => dropdownHandler("payrollDropdown")}
+            >
               <div
                 className={`sidebar-icon ${
                   showSurvey ? "active" : ""
@@ -350,10 +363,10 @@ const SplitPane = () => {
               >
                 <img
                   src="/Filled_payslip.svg"
-                  onClick={surveyHandler}
                   style={{ color: "#7E55F1", display: "block" }}
                 />
               </div>
+
               <div className="sidebar-dropdown-container">
                 <p
                   className={`animate__animated ${
@@ -362,9 +375,25 @@ const SplitPane = () => {
                 >
                   Payroll
                 </p>
-                <FaAngleDown className={`${dropdowns.hrDropdown ? "t-180" : ""}`} />
+                <FaAngleDown
+                  className={`${dropdowns.payrollDropdown ? "t-180" : ""}`}
+                />
               </div>
             </div>
+
+            {/* Payroll Dropdown */}
+            {dropdowns.payrollDropdown && (
+              <div className={`hr-dropdown`}>
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                  onClick={payslipsHandler}
+                >
+                  Payslips
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </IonMenu>
@@ -381,9 +410,9 @@ const SplitPane = () => {
             showPolicies={showPolicies}
             showReliving={showReliving}
             showReimbursement={showReimbursement}
+            showPayslips={showPayslips}
           />
         </Route>
-        
       </IonRouterOutlet>
     </IonSplitPane>
   );
