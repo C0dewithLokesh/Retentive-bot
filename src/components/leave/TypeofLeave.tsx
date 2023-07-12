@@ -28,10 +28,24 @@ const TypeofLeave = () => {
         <label htmlFor="Date" className="w-full">
           Date
         </label>
-        <input
+        <div className="flex items-center w-full outline-gray-400 rounded-[5px] bg-white border-gray-400">
+          <input
+            type="date"
+            placeholder="startdate"
+            className="from-input w-full p-[10px] outline-none rounded-[5px] bg-transparent"
+          />
+          <div className="date-input"></div>
+          <input
+            type="date"
+            placeholder="startdate"
+            className="w-full p-[10px] outline-none rounded-[5px] bg-transparent"
+          />
+        </div>
+        {/* <input
           type="date"
+          placeholder="startdate"
           className="w-full p-[10px] outline-gray-400 rounded-[5px] bg-white border-gray-400"
-        />
+        /> */}
       </div>
 
       <div className="leave-reason w-full flex items-start flex-col gap-[10px] pl-2">
