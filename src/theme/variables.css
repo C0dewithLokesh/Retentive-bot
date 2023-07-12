@@ -461,7 +461,7 @@ ion-router-outlet {
   margin-bottom: 10px;
 }
 
-.leave-page p {
+.leave-page .leave-page-heading {
   background-color: rgb(146, 87, 248);
   width: 100%;
   color: white;

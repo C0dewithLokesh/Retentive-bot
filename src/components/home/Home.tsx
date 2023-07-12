@@ -18,6 +18,7 @@ import TypeofLeave from "../leave/TypeofLeave";
 import Survey from "./Survey";
 import Resignation from "../corehr/Resignation";
 import Reliving from "../corehr/Reliving";
+import Policies from "../corehr/Policies";
 
 interface Message {
   text: string;
@@ -30,6 +31,7 @@ interface HomeProps {
   ShowTypeLeave: boolean;
   splitMenuHandler: any;
   showResignation: boolean;
+  showPolicies: boolean;
   showReliving: boolean;
 }
 
@@ -39,6 +41,7 @@ const Home: React.FC<HomeProps> = ({
   ShowTypeLeave,
   splitMenuHandler,
   showResignation,
+  showPolicies,
   showReliving
 }) => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -120,6 +123,7 @@ const Home: React.FC<HomeProps> = ({
 
           {/* CORE HR */}
           {showReliving && <Reliving />}
+          {showPolicies && <Policies />}
           {showResignation && <Resignation />}
 
           {/* Leave */}

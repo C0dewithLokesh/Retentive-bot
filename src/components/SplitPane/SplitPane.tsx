@@ -10,7 +10,7 @@ import {
 
 import "animate.css";
 
-import { Redirect, Route } from "react-router";
+import { Route } from "react-router";
 import Home from "../home/Home";
 import { FaAngleDown } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,12 +27,14 @@ const SplitPane = () => {
   const [dropdowns, setDropdowns] = useState<Dropdowns>({
     leaveDropdown: false,
     hrDropdown: false,
+    employeeDropdown: false
     // Add more dropdowns here if needed
   });
 
   const [showPendingLeave, setShowPendingLeave] = useState(false);
   const [ShowTypeLeave, setShowTypeLeave] = useState(false);
   const [showResignation, setShowResignation] = useState(false);
+  const [showPolicies, setShowPolicies] = useState(false);
   const [showReliving, setShowReliving] = useState(false);
 
   
@@ -78,30 +80,35 @@ const SplitPane = () => {
 
   // Survey Handlers
   const surveyHandler = () => {
-    sidebarHandler();
     setShowSurvey((prevValue) => !prevValue);
+    sidebarHandler();
   };
 
   // Leave Handlers
   const pendingLeaveHandler = () => {
     setShowPendingLeave((prevValue) => !prevValue);
-    dropdownHandler("leaveDropdown", true);
+    sidebarHandler();
   };
 
   const typeLeaveHandler = () => {
     setShowTypeLeave((prevValue) => !prevValue);
-    dropdownHandler("leaveDropdown", true);
+    sidebarHandler();
   };
 
   // Core HR handlers
   const resignationHandler = () => {
     setShowResignation((prevValue) => !prevValue);
-    dropdownHandler("hrDropdown", true);
+    sidebarHandler();
+  };
+
+  const policiesHandler = () => {
+    setShowPolicies((prevValue) => !prevValue);
+    sidebarHandler();
   };
 
   const relivingHandler = () => {
     setShowReliving((prevValue) => !prevValue);
-    dropdownHandler("hrDropdown", true);
+    sidebarHandler();
   };
 
 
@@ -269,6 +276,7 @@ const SplitPane = () => {
                   className={`animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
+                  onClick={policiesHandler}
                 >
                   Policies
                 </p>
@@ -285,7 +293,9 @@ const SplitPane = () => {
             )}
 
             {/* Employee Benefits */}
-            <div className={`sidebar-item`}>
+            <div className={`sidebar-item`}
+              onClick={() => dropdownHandler("employeeDropdown")}
+            >
               <div
                 className={`sidebar-icon ${
                   showSurvey ? "active" : ""
@@ -294,7 +304,6 @@ const SplitPane = () => {
               >
                 <img
                   src="/redeem_FILL0_wght300_GRAD0_opsz24 1.svg"
-                  onClick={surveyHandler}
                   style={{ color: "#7E55F1", display: "block" }}
                 />
               </div>
@@ -306,9 +315,22 @@ const SplitPane = () => {
                 >
                   Employee Benefits
                 </p>
-                <FaAngleDown className={`${dropdowns.hrDropdown ? "t-180" : ""}`} />
+                <FaAngleDown className={`${dropdowns.employeeDropdown ? "t-180" : ""}`} />
               </div>
             </div>
+
+            {/* Employee Dropdown */}
+            {dropdowns.employeeDropdown && (
+              <div className={`hr-dropdown`}>
+                <p
+                  className={`animate__animated ${
+                    showSplitMenu ? "animate__fadeInLeft" : ""
+                  }`}
+                >
+                  Reimbursement
+                </p>
+              </div>
+            )}
 
             {/* Payroll */}
             <div className={`sidebar-item`}>
@@ -348,6 +370,7 @@ const SplitPane = () => {
             ShowTypeLeave={ShowTypeLeave}
             splitMenuHandler={splitMenuHandler}
             showResignation={showResignation}
+            showPolicies={showPolicies}
             showReliving={showReliving}
           />
         </Route>

@@ -5,7 +5,7 @@ type Props = {};
 const Resignation = (props: Props) => {
   return (
     <div className="leave-form leave-page font-medium flex flex-col items-center gap-4 w-full">
-      <p>Apply for resignation</p>
+      <p className="leave-page-heading">Apply for resignation</p>
 
       <div className="leave-date w-full flex flex-col items-start gap-[5px] pl-2">
         <label htmlFor="Date" className="w-full text-sm">

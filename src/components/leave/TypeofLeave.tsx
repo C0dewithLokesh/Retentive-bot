@@ -9,7 +9,7 @@ const buttonNames: string[] = [
 const TypeofLeave = () => {
   return (
     <div className="leave-form leave-page font-medium flex flex-col items-center gap-4 w-full">
-      <p>Type of Leave</p>
+      <p className="leave-page-heading">Type of Leave</p>
 
       <div className="type w-full pl-[5px]">
         <div className="type-btns w-full flex gap-2 flex-wrap">
