@@ -17,7 +17,7 @@ const Reliving = () => {
             <span className="text-[#7E55F1] leading-normal text-[12px]">IBG-105-32</span>
             <div>
               <h1 className="font-bold">Letter of Resignation</h1>
-              <span className="text-[14px] leading-none">Registration letter is approved & has been sent</span>
+              <p className="text-[14px] leading-tight">Registration letter is approved & has been sent</p>
             </div>
           </div>
 
@@ -37,7 +37,7 @@ const Reliving = () => {
             <span className="text-[#7E55F1] leading-normal text-[12px]">IBG-105-32</span>
             <div>
               <h1 className="font-bold">Acceptance Letter</h1>
-              <span className="text-[14px] leading-none">Letter of acceptance is in progress to you</span>
+              <p className="text-[14px] leading-tight">Letter of acceptance is in progress to you</p>
             </div>
           </div>
 
@@ -57,7 +57,7 @@ const Reliving = () => {
             <span className="text-[#7E55F1] leading-normal text-[12px]">IBG-105-32</span>
             <div>
               <h1 className="font-bold">Relieving Letter</h1>
-              <span className="text-[14px] leading-none">Relieving letter not processed still</span>
+              <p className="text-[14px] leading-tight">Relieving letter not processed still</p>
             </div>
           </div>
 

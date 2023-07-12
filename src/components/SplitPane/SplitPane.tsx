@@ -36,6 +36,7 @@ const SplitPane = () => {
   const [showResignation, setShowResignation] = useState(false);
   const [showPolicies, setShowPolicies] = useState(false);
   const [showReliving, setShowReliving] = useState(false);
+  const [showReimbursement, setShowReimbursement] = useState(false);
 
   
   const splitMenuHandler = () => {
@@ -68,7 +69,7 @@ const SplitPane = () => {
       ...prevState,
       leaveDropdown: false,
       hrDropdown: false,
-      // Add more dropdowns here if needed
+      employeeDropdown: false
     }));
   }
 
@@ -108,6 +109,12 @@ const SplitPane = () => {
 
   const relivingHandler = () => {
     setShowReliving((prevValue) => !prevValue);
+    sidebarHandler();
+  };
+
+  // Employee handlers
+  const reimbursementHandler = () => {
+    setShowReimbursement((prevValue) => !prevValue);
     sidebarHandler();
   };
 
@@ -326,6 +333,7 @@ const SplitPane = () => {
                   className={`animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
+                  onClick={reimbursementHandler}
                 >
                   Reimbursement
                 </p>
@@ -372,6 +380,7 @@ const SplitPane = () => {
             showResignation={showResignation}
             showPolicies={showPolicies}
             showReliving={showReliving}
+            showReimbursement={showReimbursement}
           />
         </Route>
         
