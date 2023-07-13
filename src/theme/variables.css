@@ -420,9 +420,18 @@ ion-router-outlet {
   color: #fff;
 }
 
+.msg-content-inside.bot {
+  background-color: #F7F7F7;
+  color: #000;
+}
+
 .msg-text {
   color: #fff;
   white-space: pre-wrap;
+}
+
+.msg-text.bot {
+  color: #000;
 }
 
 .msg-content-inside.user {
