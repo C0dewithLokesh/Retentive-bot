@@ -23,6 +23,7 @@ import Reimbursement from "../employee/Reimbursement";
 import Payslips from "../payroll/Payslips";
 import DocumentRequest from "../corehr/DocumentRequest";
 import HolidaySheet from "../leave/HolidaySheet";
+import MedicalExpensis from "../employee/MedicalExpensis";
 
 interface Message {
   text: string;
@@ -137,6 +138,7 @@ const Home: React.FC<HomeProps> = ({
           {showPayslips && <Payslips />}
 
           {/* Employee Components */}
+          {/* <MedicalExpensis /> */}
           {showReimbursement && <Reimbursement />}
 
           {/* CORE HR */}
