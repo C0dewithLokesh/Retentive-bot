@@ -19,7 +19,7 @@ const Resignation = (props: Props) => {
 
       <div className="leave-date w-full flex flex-col items-start gap-[5px] pl-2">
         <label htmlFor="Date" className="w-full text-sm">
-          Date
+          Resignation Date
         </label>
         <input
           type="date"
