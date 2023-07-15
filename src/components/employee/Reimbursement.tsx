@@ -1,8 +1,8 @@
-import businessIcon from '/public/business-icon.svg';
-import mapIcon from "/public/map-icon.svg";
-import medicalIcon from "/public/medical_information_FILL0_wght300_GRAD0_opsz24 2.svg";
-import workSpaceIcon from "/public/workspace_premium_FILL0_wght300_GRAD0_opsz24 2.svg";
-import webhookIcon from "/public/webhook_FILL0_wght300_GRAD0_opsz24 2.svg";
+import businessIcon from '/business-icon.svg';
+import mapIcon from "/map-icon.svg";
+import medicalIcon from "/medical_information_FILL0_wght300_GRAD0_opsz24 2.svg";
+import workSpaceIcon from "/workspace_premium_FILL0_wght300_GRAD0_opsz24 2.svg";
+import webhookIcon from "/webhook_FILL0_wght300_GRAD0_opsz24 2.svg";
 
 const Reimbursement = () => {
   return (
