@@ -254,14 +254,14 @@ lOGIN
 }
 
 ion-router-outlet {
-  min-width: 86%;
-  margin-left: 50px;
+  min-width: 100%;
+  /* margin-left: 50px; */
   overflow: visible;
 }
 
-.ion-splitpane.visible ion-router-outlet {
+/* .ion-splitpane.visible ion-router-outlet {
   margin-left: 50px;
-}
+} */
 
 /* 
   Split Pane
@@ -271,14 +271,15 @@ ion-router-outlet {
   position: absolute;
   max-width: 50%;
   min-width: 50px;
-  transition: max-width 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(0);
   z-index: 1;
   margin-top: 86px;
   border-right: 1px solid grey;
 }
 
 .split-menu.close {
-  max-width: 50px;
+  transform: translateX(-100%);
 }
 
 .sidebar-dropdown-container {
@@ -418,6 +419,7 @@ ion-router-outlet {
   text-align: justify;
   padding: 10px;
   color: #fff;
+  max-width: 97%;
 }
 
 .msg-content-inside.bot {

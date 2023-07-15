@@ -86,7 +86,7 @@ const Home: React.FC<HomeProps> = ({
   return (
     <IonPage id="main-content" className="home-page">
       {/* HEADER */}
-      <IonHeader className="header shadow-none border-b border-[#7c3aed] w-screen -ml-[50px]">
+      <IonHeader className="header shadow-none border-b border-[#7c3aed] w-screen">
         <IonToolbar className="header-wrapper ">
           <IonButtons
             slot="start"
