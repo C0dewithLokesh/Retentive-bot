@@ -149,11 +149,11 @@ const SplitPane = () => {
         className={`split-menu ${showSplitMenu ? "" : "close"}`}
       >
         <IonHeader className="menu-header hidden shadow-none"></IonHeader>
-
+        <div className="overlay w-full h-full bg-black opacity-0" onClick={splitMenuHandler}></div>
         {/* 
           SideBar Content 
         */}
-        <div className={`main-sidebar w-40 h-full`}>
+        <div className={`main-sidebar absolute w-[55%] h-full border-r-gray-400 border-r`}>
           <div className="ion-padding p-10">
             {/* ChatBot */}
             <IonItem className="ion-item" routerLink="/home">
@@ -161,7 +161,11 @@ const SplitPane = () => {
                 <div className="sidebar-icon active animate__animated animate__rollIn">
                   <FontAwesomeIcon
                     icon={faRobot}
-                    style={{ color: "#7E55F1", height: "20px", width: "20px" }}
+                    style={{
+                      color: "#7E55F1",
+                      height: "20px",
+                      width: "20px",
+                    }}
                   />
                 </div>
                 <p
@@ -247,7 +251,7 @@ const SplitPane = () => {
                 </p>
 
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={holidaySheetHandler}
@@ -318,7 +322,7 @@ const SplitPane = () => {
                 </p>
 
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={relivingHandler}

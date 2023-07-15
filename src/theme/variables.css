@@ -236,6 +236,10 @@
 
     --ion-card-background: #1e1e1e;
   }
+
+  .md .main-sidebar {
+    background-color: #121212;
+  }
 }
 
 body {
@@ -279,13 +283,13 @@ ion-router-outlet {
 
 .split-menu {
   position: absolute;
-  max-width: 50%;
+  max-width: 100%;
   min-width: 50px;
   transition: transform 0.5s ease-in-out;
   transform: translateX(0);
   z-index: 1;
   margin-top: 86px;
-  border-right: 1px solid grey;
+  --background: transparent;
 }
 
 .split-menu.close {
@@ -297,6 +301,10 @@ ion-router-outlet {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.main-sidebar {
+  background-color: white;
 }
 
 .hr-dropdown {
