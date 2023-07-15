@@ -227,9 +227,9 @@ const SplitPane = () => {
 
             {/* Leave DropDown */}
             {dropdowns.leaveDropdown && (
-              <div className={`hr-dropdown text-right`}>
+              <div className={`hr-dropdown text-center`}>
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={pendingLeaveHandler}
@@ -238,7 +238,7 @@ const SplitPane = () => {
                 </p>
 
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={typeLeaveHandler}
@@ -289,9 +289,9 @@ const SplitPane = () => {
 
             {/* CORE HR DropDown */}
             {dropdowns.hrDropdown && (
-              <div className={`hr-dropdown`}>
+              <div className={`text-center hr-dropdown`}>
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={documentRequestHandler}
@@ -300,7 +300,7 @@ const SplitPane = () => {
                 </p>
 
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={resignationHandler}
@@ -309,7 +309,7 @@ const SplitPane = () => {
                 </p>
 
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={policiesHandler}
@@ -318,7 +318,7 @@ const SplitPane = () => {
                 </p>
 
                 <p
-                  className={`text-end animate__animated ${
+                  className={`animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={relivingHandler}
@@ -360,9 +360,9 @@ const SplitPane = () => {
 
             {/* Employee Dropdown */}
             {dropdowns.employeeDropdown && (
-              <div className={`hr-dropdown`}>
+              <div className={`hr-dropdown text-center`}>
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={reimbursementHandler}
@@ -405,9 +405,9 @@ const SplitPane = () => {
 
             {/* Payroll Dropdown */}
             {dropdowns.payrollDropdown && (
-              <div className={`hr-dropdown`}>
+              <div className={`hr-dropdown text-center`}>
                 <p
-                  className={`animate__animated ${
+                  className={`w-full animate__animated ${
                     showSplitMenu ? "animate__fadeInLeft" : ""
                   }`}
                   onClick={payslipsHandler}
