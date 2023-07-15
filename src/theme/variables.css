@@ -264,6 +264,16 @@ ion-router-outlet {
 } */
 
 /* 
+  Login
+*/
+
+.logout-btn::part(native) {
+  color: #fff;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* 
   Split Pane
 */
 

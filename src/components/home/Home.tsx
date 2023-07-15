@@ -1,4 +1,5 @@
 import {
+  IonButton,
   IonButtons,
   IonHeader,
   IonIcon,
@@ -87,7 +88,7 @@ const Home: React.FC<HomeProps> = ({
     <IonPage id="main-content" className="home-page">
       {/* HEADER */}
       <IonHeader className="header shadow-none border-b border-[#7c3aed] w-screen">
-        <IonToolbar className="header-wrapper ">
+        <IonToolbar className="header-wrapper flex flex-row items-center">
           <IonButtons
             slot="start"
             className="menu-ion-btn"
@@ -98,12 +99,17 @@ const Home: React.FC<HomeProps> = ({
               autoHide={false}
             ></IonMenuButton>
           </IonButtons>
-          <IonTitle className="header-container">
-            <p className="user-name mt-5 mb-0 font-medium">Retentive Bot</p>
-            <p className="user-status mb-4 text-sm text-[#4ac14a] mt-1">
-              Active
-            </p>
-          </IonTitle>
+
+          <div className="header-container flex items-center justify-between px-5">
+            <div className=" max-w-fit">
+              <h1 className="user-name mt-5 mb-0 font-medium text-[20px]">Retentive Bot</h1>
+              <p className="user-status mb-4 text-sm text-[#4ac14a] mt-1">
+                Active
+              </p>
+            </div>
+            <IonButton routerLink="/login" className="logout-btn py-[10px] bg-[#7c3aed] text-sm rounded-[50px]">LogOut</IonButton>
+          </div>
+          
         </IonToolbar>
       </IonHeader>
 
