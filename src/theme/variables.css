@@ -480,6 +480,7 @@ ion-router-outlet {
   color: black;
   border-radius: 10px;
   margin-bottom: 10px;
+  width: 95%;
 }
 
 .leave-page .leave-page-heading {

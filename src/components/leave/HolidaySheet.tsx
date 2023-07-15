@@ -1,9 +1,9 @@
 const HolidaySheet = () => {
   return (
-    <div className="pending-leaves leave-page w-full font-medium font-[Inter]">
+    <div className="pending-leaves leave-page w-[90%] font-medium font-[Inter]">
       <p className="leave-page-heading">You can track your process here</p>
 
-      <div className="leave-reasons flex items-center justify-center flex-row gap-[5px] px-1 pb-2 flex-wrap">
+      <div className="leave-reasons flex items-center justify-center flex-row gap-[10px] px-1 pb-2 flex-wrap">
         <div className="w-[90px] text-center">
           <div className="reason-number px-1 py-[6px] bg-[#a7f0a7e6] text-black flex flex-col items-center justify-center rounded-lg text-lg font-bold text-center leading-snug min-w-[60px]">
             <span className="text-[14px] font-normal font-[Inter]">JAN</span>
