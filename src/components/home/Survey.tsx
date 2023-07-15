@@ -7,7 +7,7 @@ const Survey = (props: Props) => {
   return (
     <div className="msg-content bot">
       <div className={`msg-content-inside bot survey`}>
-        <div className="survey-heading flex justify-between p-[10px] rounded-t-[10px] bg-[#9257f8]">
+        <div className="survey-heading flex justify-between p-[10px] rounded-t-[10px] bg-[#9257f8] text-white">
           <div className="survey-name">Satisfaction Survey</div>
           <div className="question-no">Question: 1</div>
         </div>
