@@ -22,6 +22,7 @@ import './theme/variables.css';
 import SplitPane from './components/SplitPane/SplitPane';
 import Login from './components/login/Login';
 import { Redirect, Route } from 'react-router';
+import Sidebar from './components/sidebar/Sidebar';
 
 setupIonicReact();
 
@@ -35,7 +36,8 @@ const App: React.FC = () => (
         <Redirect to="/login" />
       </Route>
       <Route exact path="/home">
-        <SplitPane />
+        {/* <SplitPane /> */}
+        <Sidebar />
       </Route>
     </IonReactRouter>
   </IonApp>

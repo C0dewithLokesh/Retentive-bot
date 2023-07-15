@@ -86,7 +86,7 @@ const Home: React.FC<HomeProps> = ({
   return (
     <IonPage id="main-content" className="home-page">
       {/* HEADER */}
-      <IonHeader className="header shadow-none border-b border-[#7c3aed] w-screen -ml-[50px]">
+      {/* <IonHeader className="header shadow-none border-b border-[#7c3aed] w-screen -ml-[50px]">
         <IonToolbar className="header-wrapper ">
           <IonButtons
             slot="start"
@@ -105,9 +105,9 @@ const Home: React.FC<HomeProps> = ({
             </p>
           </IonTitle>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
 
-      <div className="ion-padding msg-section flex flex-col items-start overflow-y-scroll w-full p-[10px]">
+      <div className="ion-padding msg-section flex flex-col items-start overflow-y-scroll w-full p-[10px] justify-end h-full">
         <div className="msg-container max-h-full w-full overflow-y-scroll flex flex-col-reverse">
           {messages
             .slice()

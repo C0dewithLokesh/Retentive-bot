@@ -264,6 +264,14 @@ ion-router-outlet {
 }
 
 /* 
+  Sidebar
+*/
+
+.sidebar-menu::part(container) {
+  width: 60%;
+}
+
+/* 
   Split Pane
 */
 
@@ -418,6 +426,7 @@ ion-router-outlet {
   text-align: justify;
   padding: 10px;
   color: #fff;
+  max-width: 97%;
 }
 
 .msg-content-inside.bot {
